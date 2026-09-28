@@ -9,114 +9,114 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth;scroll-padding-top:80px}
-        body{font-family:Arial,Helvetica,sans-serif;background:#f8fafc;color:#172033;line-height:1.6}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f7f6f1;color:#131418;line-height:1.6}
         a{text-decoration:none;color:inherit}
         button{font-family:inherit}
         .container{width:min(1150px,90%);margin:auto}
 
-        header{position:fixed;top:0;left:0;width:100%;height:75px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;z-index:1000;transition:.3s}
+        header{position:fixed;top:0;left:0;width:100%;height:75px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #deddd7;z-index:1000;transition:.3s}
         header.scrolled{box-shadow:0 5px 25px rgba(0,0,0,.08)}
         .nav{height:100%;display:flex;align-items:center;justify-content:space-between}
-        .logo{font-size:1.45rem;font-weight:800;color:#172033}
-        .logo span{color:#3157d5}
+        .logo{font-size:1.45rem;font-weight:800;color:#131418}
+        .logo span{color:#0b7658}
         .nav-links{display:flex;align-items:center;gap:30px;list-style:none}
-        .nav-links a{color:#475467;font-size:.9rem;font-weight:600;transition:.3s}
-        .nav-links a:hover{color:#3157d5}
-        .menu-button{display:none;background:transparent;border:0;font-size:1.8rem;cursor:pointer;color:#172033}
+        .nav-links a{color:#4f5961;font-size:.9rem;font-weight:600;transition:.3s}
+        .nav-links a:hover{color:#0b7658}
+        .menu-button{display:none;background:transparent;border:0;font-size:1.8rem;cursor:pointer;color:#131418}
 
-        .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:radial-gradient(circle at 85% 25%,rgba(49,87,213,.16),transparent 30%),linear-gradient(135deg,#f8fafc,#eef3ff)}
+        .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:radial-gradient(circle at 85% 25%,rgba(11,118,88,.14),transparent 30%),linear-gradient(135deg,#f7f6f1,#efeee8)}
         .hero-content{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:80px}
-        .tag,.section-label{display:inline-block;color:#3157d5;font-size:.75rem;font-weight:800;letter-spacing:2px}
+        .tag,.section-label{display:inline-block;color:#0b7658;font-size:.75rem;font-weight:800;letter-spacing:2px}
         .tag{margin-bottom:20px}
-        .hero h1{max-width:700px;font-size:clamp(2.7rem,6vw,5rem);line-height:1.05;letter-spacing:-3px;color:#101828;margin-bottom:25px}
-        .hero h1 span,.section-title span{color:#3157d5}
-        .hero-description{max-width:620px;font-size:1.1rem;color:#667085;margin-bottom:35px}
+        .hero h1{max-width:700px;font-size:clamp(2.7rem,6vw,5rem);line-height:1.05;letter-spacing:-3px;color:#131418;margin-bottom:25px}
+        .hero h1 span,.section-title span{color:#0b7658}
+        .hero-description{max-width:620px;font-size:1.1rem;color:#66717a;margin-bottom:35px}
         .buttons{display:flex;flex-wrap:wrap;gap:15px}
         .button{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:8px;font-size:.9rem;font-weight:700;transition:.3s}
-        .button-primary{background:#3157d5;color:#fff}
-        .button-primary:hover{background:#2445b8;transform:translateY(-2px)}
-        .button-secondary{background:#fff;border:1px solid #d0d5dd;color:#172033}
-        .button-secondary:hover{border-color:#3157d5;color:#3157d5}
+        .button-primary{background:#0b7658;color:#fff}
+        .button-primary:hover{background:#075d46;transform:translateY(-2px)}
+        .button-secondary{background:#fff;border:1px solid #d7d6d0;color:#131418}
+        .button-secondary:hover{border-color:#0b7658;color:#0b7658}
 
-        .hero-card{background:#fff;border:1px solid #e4e7ec;border-radius:25px;padding:40px;box-shadow:0 25px 70px rgba(16,24,40,.1)}
-        .hero-icon{width:70px;height:70px;display:grid;place-items:center;background:#eef2ff;border-radius:18px;font-size:2rem;margin-bottom:25px}
-        .hero-card h2{color:#101828;font-size:1.5rem;margin-bottom:12px}
-        .hero-card p{color:#667085}
-        .hero-statistics{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;padding-top:25px;border-top:1px solid #e4e7ec}
-        .stat strong{display:block;color:#3157d5;font-size:1.3rem}
-        .stat span{font-size:.8rem;color:#98a2b3}
+        .hero-card{background:#fff;border:1px solid #deddd7;border-radius:25px;padding:40px;box-shadow:0 25px 70px rgba(19,20,24,.10)}
+        .hero-icon{width:70px;height:70px;display:grid;place-items:center;background:#ecebe5;border-radius:18px;font-size:2rem;margin-bottom:25px}
+        .hero-card h2{color:#131418;font-size:1.5rem;margin-bottom:12px}
+        .hero-card p{color:#66717a}
+        .hero-statistics{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;padding-top:25px;border-top:1px solid #deddd7}
+        .stat strong{display:block;color:#0b7658;font-size:1.3rem}
+        .stat span{font-size:.8rem;color:#7a8288}
 
         section{padding:110px 0}
         .section-label{margin-bottom:12px}
-        .section-title{color:#101828;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;letter-spacing:-1.5px}
-        .section-description{color:#667085;max-width:650px;margin-top:15px}
+        .section-title{color:#131418;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;letter-spacing:-1.5px}
+        .section-description{color:#66717a;max-width:650px;margin-top:15px}
 
         .about{background:#fff}
         .about-content{display:grid;grid-template-columns:1fr 1fr;gap:90px;margin-top:40px}
-        .about-text p{color:#667085;margin-bottom:18px}
-        .about-box{background:#f8fafc;border:1px solid #e4e7ec;border-radius:18px;padding:30px}
-        .about-box h3{color:#101828;margin-bottom:10px}
-        .about-box p{color:#667085}
+        .about-text p{color:#66717a;margin-bottom:18px}
+        .about-box{background:#f7f6f1;border:1px solid #deddd7;border-radius:18px;padding:30px}
+        .about-box h3{color:#131418;margin-bottom:10px}
+        .about-box p{color:#66717a}
 
-        .services{background:#f8fafc}
+        .services{background:#f7f6f1}
         .services-header,.team-header{margin-bottom:50px}
         .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-        .service{background:#fff;border:1px solid #e4e7ec;border-radius:18px;padding:30px;transition:.3s}
-        .service:hover{transform:translateY(-6px);box-shadow:0 15px 40px rgba(16,24,40,.08);border-color:#c7d2fe}
-        .service-number{color:#3157d5;font-weight:800;font-size:.8rem;margin-bottom:22px}
-        .service h3{color:#101828;margin-bottom:12px;font-size:1.15rem}
-        .service p{color:#667085;font-size:.9rem}
+        .service{background:#fff;border:1px solid #deddd7;border-radius:18px;padding:30px;transition:.3s}
+        .service:hover{transform:translateY(-6px);box-shadow:0 15px 40px rgba(19,20,24,.08);border-color:#a9cfc2}
+        .service-number{color:#0b7658;font-weight:800;font-size:.8rem;margin-bottom:22px}
+        .service h3{color:#131418;margin-bottom:12px;font-size:1.15rem}
+        .service p{color:#66717a;font-size:.9rem}
 
-        .difference{background:#101828;color:#fff}
+        .difference{background:#131418;color:#fff}
         .difference-content{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
         .difference .section-title{color:#fff}
-        .difference-description{color:#98a2b3;margin-top:20px;max-width:600px}
+        .difference-description{color:#7a8288;margin-top:20px;max-width:600px}
         .difference-list{display:flex;flex-direction:column;gap:15px}
-        .difference-item{display:flex;gap:18px;padding:22px;border:1px solid #344054;border-radius:14px}
-        .check{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;background:rgba(49,87,213,.2);color:#8fa7ff;font-weight:bold}
+        .difference-item{display:flex;gap:18px;padding:22px;border:1px solid #3d4b47;border-radius:14px}
+        .check{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;background:rgba(11,118,88,.18);color:#8fa7ff;font-weight:bold}
         .difference-item h3{font-size:1rem;margin-bottom:4px}
-        .difference-item p{color:#98a2b3;font-size:.85rem}
+        .difference-item p{color:#7a8288;font-size:.85rem}
 
         .team{background:#fff}
         .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .person{text-align:center;padding:35px 20px;border:1px solid #e4e7ec;border-radius:18px;transition:.3s}
-        .person:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(16,24,40,.08)}
-        .avatar{width:90px;height:90px;margin:0 auto 20px;display:grid;place-items:center;border-radius:50%;background:#eef2ff;color:#3157d5;font-size:1.25rem;font-weight:800}
-        .person h3{color:#101828;font-size:1rem}
-        .role{display:block;margin:5px 0 15px;color:#3157d5;font-size:.78rem;font-weight:700}
-        .person p{color:#667085;font-size:.85rem}
+        .person{text-align:center;padding:35px 20px;border:1px solid #deddd7;border-radius:18px;transition:.3s}
+        .person:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(19,20,24,.08)}
+        .avatar{width:90px;height:90px;margin:0 auto 20px;display:grid;place-items:center;border-radius:50%;background:#ecebe5;color:#0b7658;font-size:1.25rem;font-weight:800}
+        .person h3{color:#131418;font-size:1rem}
+        .role{display:block;margin:5px 0 15px;color:#0b7658;font-size:.78rem;font-weight:700}
+        .person p{color:#66717a;font-size:.85rem}
 
-        .contact{background:linear-gradient(135deg,#3157d5,#243fa3);color:#fff}
+        .contact{background:linear-gradient(135deg,#0b7658,#243fa3);color:#fff}
         .contact-content{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px}
-        .contact .section-label{color:#cbd5ff}
+        .contact .section-label{color:#b7d8cd}
         .contact h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;margin-bottom:18px}
-        .contact-description{color:#dbe3ff;max-width:600px}
+        .contact-description{color:#e0e9e5;max-width:600px}
         .contact-info{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:30px}
         .contact-item{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.15)}
         .contact-item:last-child{border-bottom:0}
         .contact-icon{font-size:1.2rem}
         .contact-item strong{display:block}
-        .contact-item span{color:#dbe3ff;font-size:.9rem}
+        .contact-item span{color:#e0e9e5;font-size:.9rem}
 
-        footer{background:#0b1220;color:#98a2b3;padding:55px 0 20px}
+        footer{background:#151917;color:#7a8288;padding:55px 0 20px}
         .footer-content{display:flex;justify-content:space-between;gap:50px;padding-bottom:40px}
         .footer-logo{color:#fff;font-size:1.45rem;font-weight:800}
-        .footer-logo span{color:#5f7be8}
+        .footer-logo span{color:#4f9b80}
         .footer-description{max-width:400px;margin-top:12px;font-size:.85rem}
         .footer-links{display:flex;flex-wrap:wrap;gap:25px;align-content:flex-start}
         .footer-links a{font-size:.85rem;transition:.3s}
         .footer-links a:hover{color:#fff}
-        .copyright{border-top:1px solid #1d2939;padding-top:20px;text-align:center;font-size:.75rem}
+        .copyright{border-top:1px solid #303936;padding-top:20px;text-align:center;font-size:.75rem}
 
         .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
         .reveal.visible{opacity:1;transform:translateY(0)}
 
         @media(max-width:950px){
             .menu-button{display:block}
-            .nav-links{position:absolute;top:75px;left:0;width:100%;display:none;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid #e4e7ec}
+            .nav-links{position:absolute;top:75px;left:0;width:100%;display:none;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid #deddd7}
             .nav-links.active{display:flex}
             .nav-links li{width:100%}
-            .nav-links a{display:block;padding:16px 5%;border-bottom:1px solid #f0f2f5}
+            .nav-links a{display:block;padding:16px 5%;border-bottom:1px solid #e9e8e2}
             .hero-content,.about-content,.difference-content,.contact-content{grid-template-columns:1fr;gap:50px}
             .services-grid{grid-template-columns:repeat(2,1fr)}
             .team-grid{grid-template-columns:repeat(2,1fr)}
@@ -176,7 +176,7 @@
                     </p>
 
                     <div class="buttons">
-                        <a href="#contato" class="button button-primary">Fale conosco</a>
+                        <a href="https://wa.me/5511945678221?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20servi%C3%A7os%20da%20Versalite%20Consultoria." target="_blank" rel="noopener noreferrer" class="button button-primary">Fale conosco</a>
                         <a href="#servicos" class="button button-secondary">Conheça nossos serviços</a>
                     </div>
                 </div>
@@ -451,21 +451,21 @@
 
                 <div class="contact-info reveal">
 
-                    <div class="contact-item">
+                    <a class="contact-item contact-link" href="mailto:davi.santosoliveira214@gmail.com" aria-label="Enviar e-mail para a Versalite Consultoria">
                         <div class="contact-icon">📧</div>
                         <div>
                             <strong>E-mail</strong>
                             <span>davi.santosoliveira214@gmail.com</span>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="contact-item">
+                    <a class="contact-item contact-link" href="https://wa.me/5511945678221?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20servi%C3%A7os%20da%20Versalite%20Consultoria." target="_blank" rel="noopener noreferrer" aria-label="Conversar com a Versalite Consultoria pelo WhatsApp">
                         <div class="contact-icon">📱</div>
                         <div>
                             <strong>WhatsApp</strong>
-                            <span>(11) 945678221</span>
+                            <span>(11) 94567-8221</span>
                         </div>
-                    </div>
+                    </a>
 
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
