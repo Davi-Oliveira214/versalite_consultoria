@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Versalite Consultoria — soluções em Recursos Humanos para pequenas e médias empresas.">
+    <title>Versalite Consultoria | Recursos Humanos</title>
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;scroll-padding-top:80px}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f8fafc;color:#172033;line-height:1.6}
+        a{text-decoration:none;color:inherit}
+        button{font-family:inherit}
+        .container{width:min(1150px,90%);margin:auto}
+
+        header{position:fixed;top:0;left:0;width:100%;height:75px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;z-index:1000;transition:.3s}
+        header.scrolled{box-shadow:0 5px 25px rgba(0,0,0,.08)}
+        .nav{height:100%;display:flex;align-items:center;justify-content:space-between}
+        .logo{font-size:1.45rem;font-weight:800;color:#172033}
+        .logo span{color:#3157d5}
+        .nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+        .nav-links a{color:#475467;font-size:.9rem;font-weight:600;transition:.3s}
+        .nav-links a:hover{color:#3157d5}
+        .menu-button{display:none;background:transparent;border:0;font-size:1.8rem;cursor:pointer;color:#172033}
+
+        .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:radial-gradient(circle at 85% 25%,rgba(49,87,213,.16),transparent 30%),linear-gradient(135deg,#f8fafc,#eef3ff)}
+        .hero-content{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:80px}
+        .tag,.section-label{display:inline-block;color:#3157d5;font-size:.75rem;font-weight:800;letter-spacing:2px}
+        .tag{margin-bottom:20px}
+        .hero h1{max-width:700px;font-size:clamp(2.7rem,6vw,5rem);line-height:1.05;letter-spacing:-3px;color:#101828;margin-bottom:25px}
+        .hero h1 span,.section-title span{color:#3157d5}
+        .hero-description{max-width:620px;font-size:1.1rem;color:#667085;margin-bottom:35px}
+        .buttons{display:flex;flex-wrap:wrap;gap:15px}
+        .button{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:8px;font-size:.9rem;font-weight:700;transition:.3s}
+        .button-primary{background:#3157d5;color:#fff}
+        .button-primary:hover{background:#2445b8;transform:translateY(-2px)}
+        .button-secondary{background:#fff;border:1px solid #d0d5dd;color:#172033}
+        .button-secondary:hover{border-color:#3157d5;color:#3157d5}
+
+        .hero-card{background:#fff;border:1px solid #e4e7ec;border-radius:25px;padding:40px;box-shadow:0 25px 70px rgba(16,24,40,.1)}
+        .hero-icon{width:70px;height:70px;display:grid;place-items:center;background:#eef2ff;border-radius:18px;font-size:2rem;margin-bottom:25px}
+        .hero-card h2{color:#101828;font-size:1.5rem;margin-bottom:12px}
+        .hero-card p{color:#667085}
+        .hero-statistics{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;padding-top:25px;border-top:1px solid #e4e7ec}
+        .stat strong{display:block;color:#3157d5;font-size:1.3rem}
+        .stat span{font-size:.8rem;color:#98a2b3}
+
+        section{padding:110px 0}
+        .section-label{margin-bottom:12px}
+        .section-title{color:#101828;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;letter-spacing:-1.5px}
+        .section-description{color:#667085;max-width:650px;margin-top:15px}
+
+        .about{background:#fff}
+        .about-content{display:grid;grid-template-columns:1fr 1fr;gap:90px;margin-top:40px}
+        .about-text p{color:#667085;margin-bottom:18px}
+        .about-box{background:#f8fafc;border:1px solid #e4e7ec;border-radius:18px;padding:30px}
+        .about-box h3{color:#101828;margin-bottom:10px}
+        .about-box p{color:#667085}
+
+        .services{background:#f8fafc}
+        .services-header,.team-header{margin-bottom:50px}
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .service{background:#fff;border:1px solid #e4e7ec;border-radius:18px;padding:30px;transition:.3s}
+        .service:hover{transform:translateY(-6px);box-shadow:0 15px 40px rgba(16,24,40,.08);border-color:#c7d2fe}
+        .service-number{color:#3157d5;font-weight:800;font-size:.8rem;margin-bottom:22px}
+        .service h3{color:#101828;margin-bottom:12px;font-size:1.15rem}
+        .service p{color:#667085;font-size:.9rem}
+
+        .difference{background:#101828;color:#fff}
+        .difference-content{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+        .difference .section-title{color:#fff}
+        .difference-description{color:#98a2b3;margin-top:20px;max-width:600px}
+        .difference-list{display:flex;flex-direction:column;gap:15px}
+        .difference-item{display:flex;gap:18px;padding:22px;border:1px solid #344054;border-radius:14px}
+        .check{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;background:rgba(49,87,213,.2);color:#8fa7ff;font-weight:bold}
+        .difference-item h3{font-size:1rem;margin-bottom:4px}
+        .difference-item p{color:#98a2b3;font-size:.85rem}
+
+        .team{background:#fff}
+        .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .person{text-align:center;padding:35px 20px;border:1px solid #e4e7ec;border-radius:18px;transition:.3s}
+        .person:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(16,24,40,.08)}
+        .avatar{width:90px;height:90px;margin:0 auto 20px;display:grid;place-items:center;border-radius:50%;background:#eef2ff;color:#3157d5;font-size:1.25rem;font-weight:800}
+        .person h3{color:#101828;font-size:1rem}
+        .role{display:block;margin:5px 0 15px;color:#3157d5;font-size:.78rem;font-weight:700}
+        .person p{color:#667085;font-size:.85rem}
+
+        .contact{background:linear-gradient(135deg,#3157d5,#243fa3);color:#fff}
+        .contact-content{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px}
+        .contact .section-label{color:#cbd5ff}
+        .contact h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;margin-bottom:18px}
+        .contact-description{color:#dbe3ff;max-width:600px}
+        .contact-info{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:30px}
+        .contact-item{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+        .contact-item:last-child{border-bottom:0}
+        .contact-icon{font-size:1.2rem}
+        .contact-item strong{display:block}
+        .contact-item span{color:#dbe3ff;font-size:.9rem}
+
+        footer{background:#0b1220;color:#98a2b3;padding:55px 0 20px}
+        .footer-content{display:flex;justify-content:space-between;gap:50px;padding-bottom:40px}
+        .footer-logo{color:#fff;font-size:1.45rem;font-weight:800}
+        .footer-logo span{color:#5f7be8}
+        .footer-description{max-width:400px;margin-top:12px;font-size:.85rem}
+        .footer-links{display:flex;flex-wrap:wrap;gap:25px;align-content:flex-start}
+        .footer-links a{font-size:.85rem;transition:.3s}
+        .footer-links a:hover{color:#fff}
+        .copyright{border-top:1px solid #1d2939;padding-top:20px;text-align:center;font-size:.75rem}
+
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+
+        @media(max-width:950px){
+            .menu-button{display:block}
+            .nav-links{position:absolute;top:75px;left:0;width:100%;display:none;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid #e4e7ec}
+            .nav-links.active{display:flex}
+            .nav-links li{width:100%}
+            .nav-links a{display:block;padding:16px 5%;border-bottom:1px solid #f0f2f5}
+            .hero-content,.about-content,.difference-content,.contact-content{grid-template-columns:1fr;gap:50px}
+            .services-grid{grid-template-columns:repeat(2,1fr)}
+            .team-grid{grid-template-columns:repeat(2,1fr)}
+        }
+
+        @media(max-width:600px){
+            header{height:68px}
+            .nav-links{top:68px}
+            .hero{padding-top:110px}
+            .hero h1{letter-spacing:-2px}
+            section{padding:75px 0}
+            .services-grid,.team-grid{grid-template-columns:1fr}
+            .hero-card{padding:30px}
+            .buttons{flex-direction:column}
+            .button{width:100%}
+            .footer-content{flex-direction:column}
+            .hero-statistics{gap:10px}
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container nav">
+            <a href="#inicio" class="logo"><span>Versalite</span> Consultoria</a>
+
+            <button class="menu-button" id="menuButton" aria-label="Abrir menu">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#equipe">Equipe</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <div class="container hero-content">
+
+                <div class="hero-text reveal">
+                    <span class="tag">CONSULTORIA EM RECURSOS HUMANOS</span>
+
+                    <h1>
+                        Pessoas certas para
+                        <span>empresas melhores.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A Versalite Consultoria ajuda pequenas e médias
+                        empresas a desenvolver pessoas, organizar processos
+                        e construir uma gestão de talentos mais eficiente.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#contato" class="button button-primary">Fale conosco</a>
+                        <a href="#servicos" class="button button-secondary">Conheça nossos serviços</a>
+                    </div>
+                </div>
+
+                <div class="hero-card reveal">
+                    <div class="hero-icon">👥</div>
+                    <h2>Gestão de pessoas</h2>
+                    <p>
+                        Estratégias de Recursos Humanos pensadas para a
+                        realidade das pequenas e médias empresas.
+                    </p>
+
+                    <div class="hero-statistics">
+                        <div class="stat">
+                            <strong>PMEs</strong>
+                            <span>Nosso foco</span>
+                        </div>
+                        <div class="stat">
+                            <strong>RH</strong>
+                            <span>Nossa especialidade</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="about" id="sobre">
+            <div class="container">
+                <div class="section-label">SOBRE NÓS</div>
+
+                <h2 class="section-title reveal">
+                    Recursos Humanos que
+                    <span>geram resultados.</span>
+                </h2>
+
+                <div class="about-content">
+                    <div class="about-text reveal">
+                        <p>
+                            A Versalite Consultoria tem como propósito aproximar
+                            a gestão de pessoas das necessidades reais das
+                            pequenas e médias empresas.
+                        </p>
+                        <p>
+                            Nosso trabalho busca tornar os processos de
+                            Recursos Humanos mais organizados, estratégicos
+                            e humanos.
+                        </p>
+                        <p>
+                            Trabalhamos lado a lado com nossos clientes para
+                            identificar desafios, desenvolver soluções e
+                            contribuir para o crescimento sustentável das
+                            organizações.
+                        </p>
+                    </div>
+
+                    <div class="about-box reveal">
+                        <h3>Nossa missão</h3>
+                        <p>
+                            Oferecer soluções de Recursos Humanos acessíveis,
+                            práticas e personalizadas, ajudando empresas a
+                            desenvolver seus profissionais e seus negócios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="servicos">
+            <div class="container">
+
+                <div class="services-header reveal">
+                    <div class="section-label">NOSSOS SERVIÇOS</div>
+                    <h2 class="section-title">
+                        Soluções para sua
+                        <span>empresa crescer.</span>
+                    </h2>
+                    <p class="section-description">
+                        Serviços de Recursos Humanos desenvolvidos para
+                        atender às necessidades de pequenas e médias empresas.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+
+                    <article class="service reveal">
+                        <div class="service-number">01</div>
+                        <h3>Recrutamento e Seleção</h3>
+                        <p>
+                            Apoio na busca e seleção de profissionais alinhados
+                            às necessidades e à cultura da empresa.
+                        </p>
+                    </article>
+
+                    <article class="service reveal">
+                        <div class="service-number">02</div>
+                        <h3>Gestão de Pessoas</h3>
+                        <p>
+                            Estruturação de práticas para melhorar a organização,
+                            o relacionamento e o desenvolvimento das equipes.
+                        </p>
+                    </article>
+
+                    <article class="service reveal">
+                        <div class="service-number">03</div>
+                        <h3>Treinamentos</h3>
+                        <p>
+                            Desenvolvimento de competências para preparar
+                            colaboradores para novos desafios profissionais.
+                        </p>
+                    </article>
+
+                    <article class="service reveal">
+                        <div class="service-number">04</div>
+                        <h3>Avaliação de Desempenho</h3>
+                        <p>
+                            Processos para acompanhar resultados, identificar
+                            oportunidades e desenvolver profissionais.
+                        </p>
+                    </article>
+
+                    <article class="service reveal">
+                        <div class="service-number">05</div>
+                        <h3>Estruturação de RH</h3>
+                        <p>
+                            Organização de processos e rotinas de Recursos
+                            Humanos de maneira simples e eficiente.
+                        </p>
+                    </article>
+
+                    <article class="service reveal">
+                        <div class="service-number">06</div>
+                        <h3>Consultoria Estratégica</h3>
+                        <p>
+                            Análise dos desafios da empresa e criação de
+                            estratégias voltadas à gestão de pessoas.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="difference">
+            <div class="container difference-content">
+
+                <div class="reveal">
+                    <div class="section-label">NOSSO DIFERENCIAL</div>
+
+                    <h2 class="section-title">
+                        RH estratégico,
+                        <span>sem complicação.</span>
+                    </h2>
+
+                    <p class="difference-description">
+                        Entendemos que pequenas e médias empresas possuem
+                        desafios específicos. Por isso, nossas soluções são
+                        pensadas para serem práticas, personalizadas e
+                        aplicáveis à realidade de cada negócio.
+                    </p>
+                </div>
+
+                <div class="difference-list">
+
+                    <div class="difference-item reveal">
+                        <div class="check">✓</div>
+                        <div>
+                            <h3>Atendimento personalizado</h3>
+                            <p>Cada empresa possui necessidades e objetivos diferentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="difference-item reveal">
+                        <div class="check">✓</div>
+                        <div>
+                            <h3>Foco em resultados</h3>
+                            <p>Estratégias alinhadas aos objetivos do negócio.</p>
+                        </div>
+                    </div>
+
+                    <div class="difference-item reveal">
+                        <div class="check">✓</div>
+                        <div>
+                            <h3>Pessoas no centro</h3>
+                            <p>Valorizamos o desenvolvimento das pessoas dentro das organizações.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="team" id="equipe">
+            <div class="container">
+
+                <div class="team-header reveal">
+                    <div class="section-label">NOSSA EQUIPE</div>
+
+                    <h2 class="section-title">
+                        Conheça nossa
+                        <span>equipe.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Profissionais responsáveis por diferentes áreas
+                        da Versalite Consultoria.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+
+                    <article class="person reveal">
+                        <div class="avatar">DO</div>
+                        <h3>Daniel Oliveira</h3>
+                        <span class="role">Consultoria de RH</span>
+                        <p>
+                            Responsável pela consultoria e pelas estratégias
+                            de Recursos Humanos.
+                        </p>
+                    </article>
+
+                    <article class="person reveal">
+                        <div class="avatar">GB</div>
+                        <h3>Giovana Bitencourt</h3>
+                        <span class="role">Design</span>
+                        <p>
+                            Responsável pela identidade visual e comunicação
+                            da empresa.
+                        </p>
+                    </article>
+
+                    <article class="person reveal">
+                        <div class="avatar">JS</div>
+                        <h3>Julia Soledade</h3>
+                        <span class="role">Administrativo Geral</span>
+                        <p>
+                            Responsável pela organização e pelos processos
+                            administrativos.
+                        </p>
+                    </article>
+
+                    <article class="person reveal">
+                        <div class="avatar">DO</div>
+                        <h3>Davi Oliveira</h3>
+                        <span class="role">TI</span>
+                        <p>
+                            Responsável pela tecnologia e pelas soluções
+                            digitais da empresa.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contato">
+            <div class="container contact-content">
+
+                <div class="reveal">
+                    <div class="section-label">VAMOS CONVERSAR?</div>
+
+                    <h2>
+                        Sua empresa está pronta para evoluir?
+                    </h2>
+
+                    <p class="contact-description">
+                        Conte-nos sobre os desafios da sua empresa e descubra
+                        como a Versalite Consultoria pode ajudar sua equipe
+                        a crescer.
+                    </p>
+                </div>
+
+                <div class="contact-info reveal">
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>E-mail</strong>
+                            <span>contato@versalite.com.br</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <span>(00) 00000-0000</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Atendimento</strong>
+                            <span>Pequenas e médias empresas</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+
+            <div>
+                <div class="footer-logo">
+                    <span>Versalite</span> Consultoria
+                </div>
+
+                <p class="footer-description">
+                    Consultoria em Recursos Humanos para pequenas
+                    e médias empresas.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#contato">Contato</a>
+            </div>
+
+        </div>
+
+        <div class="container copyright">
+            © 2026 Versalite Consultoria — Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+        const header = document.getElementById("header");
+
+        menuButton.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 30);
+        });
+
+        const elements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        elements.forEach(element => observer.observe(element));
+    </script>
+
+</body>
+</html>
